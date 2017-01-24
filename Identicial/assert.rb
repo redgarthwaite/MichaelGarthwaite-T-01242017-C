@@ -15,7 +15,6 @@ module Assert
         end
       end
     end
-
     return messageError
   end
 
@@ -38,16 +37,14 @@ module Assert
     return messageError
   end
 
-  def self.identical?(objectA, objectB, ignoredKeys=nil)
+  def self.identical?(objectA, objectB, ignoredKeys=[])
     statusMessage = ''
     #sanity check
     if objectA.nil? and objectB.nil?
       puts "WARNING: Both objects are NULL. Identical."
-      return TRUE
 
     elsif objectA.nil? or objectB.nil?
-      puts "One of the objects has no value."
-      return FALSE
+      statusMessage << "One of the objects is NULL."
     else
       if objectA.is_a?(Array)
         statusMessage << compareArray(objectA,objectB,ignoredKeys)
@@ -61,6 +58,9 @@ module Assert
     end
     if statusMessage != ''
       raise StandardError, statusMessage
+      return FALSE
+    else
+      return TRUE
     end
   end
 

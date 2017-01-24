@@ -22,7 +22,7 @@ my_simple_object_2 = {
 
 
 
-Assert.identical?(my_simple_object, my_simple_object_2, ['key1','key2'])
+Assert.identical?(my_simple_object, my_simple_object_2,)
 
 
 
@@ -96,7 +96,7 @@ my_complex_object_2 = [
 ]
 
 
-Assert.identical?(my_complex_object, my_complex_object_2)
+#Assert.identical?(my_complex_object, my_complex_object)
 
 
 # Should pass since it's testing against itself
